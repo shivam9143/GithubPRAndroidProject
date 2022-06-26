@@ -31,6 +31,7 @@ import androidx.paging.PagingData
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.google.accompanist.coil.rememberCoilPainter
+import com.shivam.base.AppUtils.DateTimeParser
 import com.shivam.prs.models.PullRequest
 import com.shivam.prs.ui.ui.theme.GithubPrsTheme
 import com.shivam.prs.viewmodel.PrViewModel
@@ -89,14 +90,7 @@ fun UserInfoList(modifier: Modifier, prList: Flow<PagingData<PullRequest>>, cont
     }
 }
 
-fun dateTimeParser(before : String) : String {
-    val parser = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()) // the initial pattern
-    val formatter = SimpleDateFormat("dd MMMM yyyy", Locale.getDefault()) // the desired output pattern
 
-    // Put the date in the parser, convert the string to Date class
-    val parse = parser.parse(before)
-    return formatter.format(parse)
-}
 
 @Composable
 fun PrRequestItem(prData: PullRequest, onClick: () -> Unit) {
@@ -178,7 +172,7 @@ fun PrRequestItem(prData: PullRequest, onClick: () -> Unit) {
                     )
 
                     Text(
-                        text = dateTimeParser(prData.created_date.toString()),
+                        text = DateTimeParser(prData.created_date.toString()),
                         fontWeight = FontWeight.Light,
                         maxLines = 1,
                         overflow = TextOverflow.Ellipsis,
@@ -200,7 +194,7 @@ fun PrRequestItem(prData: PullRequest, onClick: () -> Unit) {
                         modifier = Modifier.padding(top = 5.dp)
                     )
                     Text(
-                        text = dateTimeParser(prData.closed_date.toString()),
+                        text = DateTimeParser(prData.closed_date.toString()),
                         fontWeight = FontWeight.Light,
                         maxLines = 1,
                         overflow = TextOverflow.Ellipsis,
