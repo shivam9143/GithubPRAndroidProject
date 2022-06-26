@@ -55,7 +55,6 @@ class PrActivity : ComponentActivity() {
 @Composable
 fun PrList(modifier: Modifier = Modifier, viewModel: PrViewModel, context: Context) {
     UserInfoList(modifier, prList = viewModel.prList, context)
-
 }
 
 @Composable
