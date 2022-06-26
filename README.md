@@ -16,6 +16,6 @@ The codebase focuses 👓 on following key things:
 - Kotlin + Coroutines
 - And best practices 🛠
 
-Apkk Apk - https://drive.google.com/file/d/1TN9-Nd9BnhhbB4Q0rUUIivuxI80mI6cB/view?usp=sharing
+Apk Link - https://drive.google.com/file/d/1TN9-Nd9BnhhbB4Q0rUUIivuxI80mI6cB/view?usp=sharing
 
 
