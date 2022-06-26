@@ -1,3 +1,7 @@
 <resources>
     <string name="title_activity_pr">PrActivity</string>
+    <string name="pr_title">\"PR Title : \"</string>
+    <string name="pr_created_date">\"PR Created Date : \"</string>
+    <string name="pr_closed_date">\"PR Closed Date : \"</string>
+    <string name="user_name">\"User Name : \"</string>
 </resources>

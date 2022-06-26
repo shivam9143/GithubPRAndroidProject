@@ -21,6 +21,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
@@ -32,6 +33,7 @@ import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.google.accompanist.coil.rememberCoilPainter
 import com.shivam.base.AppUtils.DateTimeParser
+import com.shivam.prs.R
 import com.shivam.prs.models.PullRequest
 import com.shivam.prs.ui.ui.theme.GithubPrsTheme
 import com.shivam.prs.viewmodel.PrViewModel
@@ -141,7 +143,7 @@ fun PrRequestItem(prData: PullRequest, onClick: () -> Unit) {
                         .background(MaterialTheme.colors.surface)
                 ) {
                     Text(
-                        text = "PR Title : ",
+                        text = stringResource(R.string.pr_title),
                         fontWeight = FontWeight.Bold,
                         maxLines = 1,
                         overflow = TextOverflow.Ellipsis,
@@ -164,7 +166,7 @@ fun PrRequestItem(prData: PullRequest, onClick: () -> Unit) {
                         .background(MaterialTheme.colors.surface)
                 ) {
                     Text(
-                        text = "PR Created Date : ",
+                        text = stringResource(R.string.pr_created_date),
                         fontWeight = FontWeight.Bold,
                         style = TextStyle(fontSize = 22.sp),
                         color = Color.Black,
@@ -187,7 +189,7 @@ fun PrRequestItem(prData: PullRequest, onClick: () -> Unit) {
                         .background(MaterialTheme.colors.surface)
                 ) {
                     Text(
-                        text = "PR Closed Date : ",
+                        text = stringResource(R.string.pr_closed_date),
                         fontWeight = FontWeight.Bold,
                         style = TextStyle(fontSize = 22.sp),
                         color = Color.Black,
@@ -212,7 +214,7 @@ fun PrRequestItem(prData: PullRequest, onClick: () -> Unit) {
                             .background(MaterialTheme.colors.surface)
                     ) {
                         Text(
-                            text = "User Name : ",
+                            text = stringResource(R.string.user_name),
                             fontWeight = FontWeight.Bold,
                             style = TextStyle(fontSize = 22.sp),
                             color = Color.Black,
