@@ -102,7 +102,7 @@ class SplashActivity : ComponentActivity() {
                     fontWeight = FontWeight.ExtraBold,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis,
-                    style = TextStyle(fontSize = 30.sp),
+                    style = TextStyle(fontSize = 16.sp),
                     color = Color.Black,
                     modifier = Modifier.padding(top = 5.dp)
                 )
@@ -111,7 +111,7 @@ class SplashActivity : ComponentActivity() {
                     fontWeight = FontWeight.ExtraBold,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis,
-                    style = TextStyle(fontSize = 30.sp),
+                    style = TextStyle(fontSize = 16.sp),
                     color = Color.Black,
                     modifier = Modifier.padding(top = 5.dp)
                 )
@@ -120,7 +120,7 @@ class SplashActivity : ComponentActivity() {
                     fontWeight = FontWeight.ExtraBold,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis,
-                    style = TextStyle(fontSize = 30.sp),
+                    style = TextStyle(fontSize = 16.sp),
                     color = Color.Black,
                     modifier = Modifier.padding(top = 5.dp)
                 )
