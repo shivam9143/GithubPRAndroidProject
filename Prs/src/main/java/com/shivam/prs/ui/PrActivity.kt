@@ -93,7 +93,6 @@ fun UserInfoList(modifier: Modifier, prList: Flow<PagingData<PullRequest>>, cont
 }
 
 
-
 @Composable
 fun PrRequestItem(prData: PullRequest, onClick: () -> Unit) {
     Card(
@@ -205,35 +204,32 @@ fun PrRequestItem(prData: PullRequest, onClick: () -> Unit) {
                         modifier = Modifier.padding(top = 5.dp)
                     )
                 }
-                CompositionLocalProvider(
-                    LocalContentAlpha provides ContentAlpha.medium
+
+                Row(
+                    modifier = Modifier
+                        .clip(RoundedCornerShape(4.dp))
+                        .background(MaterialTheme.colors.surface)
                 ) {
-                    Row(
-                        modifier = Modifier
-                            .clip(RoundedCornerShape(4.dp))
-                            .background(MaterialTheme.colors.surface)
-                    ) {
-                        Text(
-                            text = stringResource(R.string.user_name),
-                            fontWeight = FontWeight.Bold,
-                            style = TextStyle(fontSize = 22.sp),
-                            color = Color.Black,
-                            modifier = Modifier.padding(top = 5.dp)
-                        )
-                        Text(
-                            text = prData.user.name,
-                            style = TextStyle(fontSize = 22.sp),
-                            fontWeight = FontWeight.Light,
-                            maxLines = 1,
-                            overflow = TextOverflow.Ellipsis,
-                            modifier = Modifier.padding(top = 5.dp)
-                        )
-                        }
-                    }
+                    Text(
+                        text = stringResource(R.string.user_name),
+                        fontWeight = FontWeight.Bold,
+                        style = TextStyle(fontSize = 22.sp),
+                        color = Color.Black,
+                        modifier = Modifier.padding(top = 5.dp)
+                    )
+                    Text(
+                        text = prData.user.name,
+                        style = TextStyle(fontSize = 22.sp),
+                        fontWeight = FontWeight.Light,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
+                        modifier = Modifier.padding(top = 5.dp)
+                    )
                 }
             }
         }
     }
+}
 
 
 
