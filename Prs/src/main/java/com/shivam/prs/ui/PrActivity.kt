@@ -36,6 +36,8 @@ import com.shivam.prs.ui.ui.theme.GithubPrsTheme
 import com.shivam.prs.viewmodel.PrViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.Flow
+import java.text.SimpleDateFormat
+import java.util.*
 
 @AndroidEntryPoint
 class PrActivity : ComponentActivity() {
@@ -87,6 +89,15 @@ fun UserInfoList(modifier: Modifier, prList: Flow<PagingData<PullRequest>>, cont
     }
 }
 
+fun dateTimeParser(before : String) : String {
+    val parser = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()) // the initial pattern
+    val formatter = SimpleDateFormat("dd MMMM yyyy", Locale.getDefault()) // the desired output pattern
+
+    // Put the date in the parser, convert the string to Date class
+    val parse = parser.parse(before)
+    return formatter.format(parse)
+}
+
 @Composable
 fun PrRequestItem(prData: PullRequest, onClick: () -> Unit) {
     Card(
@@ -130,40 +141,103 @@ fun PrRequestItem(prData: PullRequest, onClick: () -> Unit) {
                     .padding(start = 12.dp)
                     .align(Alignment.CenterVertically)
             ) {
-                Text(
-                    text = prData.title.toString(),
-                    fontWeight = FontWeight.Bold,
-                    style = TextStyle(fontSize = 22.sp),
-                    color = Color.Black,
-                    modifier = Modifier.padding(top = 5.dp)
-                )
-                Text(
-                    text = prData.created_date.toString(),
-                    fontWeight = FontWeight.Bold,
-                    style = TextStyle(fontSize = 22.sp),
-                    color = Color.Black,
-                    modifier = Modifier.padding(top = 5.dp)
-                )
-                Text(
-                    text = prData.closed_date.toString(),
-                    fontWeight = FontWeight.Bold,
-                    style = TextStyle(fontSize = 22.sp),
-                    color = Color.Black,
-                    modifier = Modifier.padding(top = 5.dp)
-                )
+                Row(
+                    modifier = Modifier
+                        .clip(RoundedCornerShape(4.dp))
+                        .background(MaterialTheme.colors.surface)
+                ) {
+                    Text(
+                        text = "PR Title : ",
+                        fontWeight = FontWeight.Bold,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
+                        style = TextStyle(fontSize = 22.sp),
+                        color = Color.Black,
+                        modifier = Modifier.padding(top = 5.dp)
+                    )
+
+                    Text(
+                        text = prData.title.toString(),
+                        fontWeight = FontWeight.Light,
+                        style = TextStyle(fontSize = 22.sp),
+                        color = Color.Black,
+                        modifier = Modifier.padding(top = 5.dp)
+                    )
+                }
+                Row(
+                    modifier = Modifier
+                        .clip(RoundedCornerShape(4.dp))
+                        .background(MaterialTheme.colors.surface)
+                ) {
+                    Text(
+                        text = "PR Created Date : ",
+                        fontWeight = FontWeight.Bold,
+                        style = TextStyle(fontSize = 22.sp),
+                        color = Color.Black,
+                        modifier = Modifier.padding(top = 5.dp)
+                    )
+
+                    Text(
+                        text = dateTimeParser(prData.created_date.toString()),
+                        fontWeight = FontWeight.Light,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
+                        style = TextStyle(fontSize = 22.sp),
+                        color = Color.Black,
+                        modifier = Modifier.padding(top = 5.dp)
+                    )
+                }
+                Row(
+                    modifier = Modifier
+                        .clip(RoundedCornerShape(4.dp))
+                        .background(MaterialTheme.colors.surface)
+                ) {
+                    Text(
+                        text = "PR Closed Date : ",
+                        fontWeight = FontWeight.Bold,
+                        style = TextStyle(fontSize = 22.sp),
+                        color = Color.Black,
+                        modifier = Modifier.padding(top = 5.dp)
+                    )
+                    Text(
+                        text = dateTimeParser(prData.closed_date.toString()),
+                        fontWeight = FontWeight.Light,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
+                        style = TextStyle(fontSize = 22.sp),
+                        color = Color.Black,
+                        modifier = Modifier.padding(top = 5.dp)
+                    )
+                }
                 CompositionLocalProvider(
                     LocalContentAlpha provides ContentAlpha.medium
                 ) {
-                    Text(
-                        text = prData.user.name,
-                        style = typography.body2,
-                        maxLines = 1,
-                        overflow = TextOverflow.Ellipsis,
-                        modifier = Modifier.padding(end = 25.dp)
-                    )
+                    Row(
+                        modifier = Modifier
+                            .clip(RoundedCornerShape(4.dp))
+                            .background(MaterialTheme.colors.surface)
+                    ) {
+                        Text(
+                            text = "User Name : ",
+                            fontWeight = FontWeight.Bold,
+                            style = TextStyle(fontSize = 22.sp),
+                            color = Color.Black,
+                            modifier = Modifier.padding(top = 5.dp)
+                        )
+                        Text(
+                            text = prData.user.name,
+                            style = TextStyle(fontSize = 22.sp),
+                            fontWeight = FontWeight.Light,
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis,
+                            modifier = Modifier.padding(top = 5.dp)
+                        )
+                        }
+                    }
                 }
             }
         }
     }
-}
+
+
 
