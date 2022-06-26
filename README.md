@@ -9,6 +9,8 @@ The codebase focuses 👓 on following key things:
 - Clean Architecture with MVVM
 - Divided app into multiple sub modules
 - Continious Integration (CI) with Github Actions
+- Compose UI
+- Compose Paging 3 Library
 - Code structuring style and comments
 - Dependency injection using Hilt 🗡
 - Kotlin + Coroutines
