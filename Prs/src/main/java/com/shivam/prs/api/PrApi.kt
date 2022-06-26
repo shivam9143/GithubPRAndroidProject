@@ -6,7 +6,7 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface PrApi {
-    @GET("gothinkster/angular-realworld-example-app/pulls")
+    @GET("shivam9143/GithubPRAndroidProject/pulls")
     suspend fun getGithubPrs(
         @Query("state") state: String = "closed",
         @Query("page") page: Int,
