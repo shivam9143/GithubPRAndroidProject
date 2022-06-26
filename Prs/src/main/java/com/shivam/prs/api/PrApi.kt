@@ -6,12 +6,10 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface PrApi {
-
     @GET("gothinkster/angular-realworld-example-app/pulls")
     suspend fun getGithubPrs(
         @Query("state") state: String = "closed",
         @Query("page") page: Int,
         @Query("per_page") per_page: Int = 10
     ): List<PullRequest>
-
 }
