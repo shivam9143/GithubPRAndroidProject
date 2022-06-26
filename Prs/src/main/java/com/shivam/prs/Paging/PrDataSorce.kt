@@ -34,6 +34,16 @@ class PrDataSource(val prRepository: PrRepository) :
                 is ResultWrapper.Failure -> {
                     return LoadResult.Error(Throwable("Network Error"))
                 }
+                is ResultWrapper.GenericError -> {
+                    if (prRes.code == 403)
+                        return LoadResult.Error(Throwable("Access Denied, Forbidden!"))
+                    else if (prRes.code == 304)
+                        return LoadResult.Error(Throwable("Not Modified!"))
+                    else if (prRes.code == 422)
+                        return LoadResult.Error(Throwable("Validation Failed!"))
+                    else
+                        return LoadResult.Error(Throwable("Http Error Code :- ${prRes.code} "))
+                }
                 else -> {
                     return LoadResult.Error(Throwable("IO Error"))
                 }

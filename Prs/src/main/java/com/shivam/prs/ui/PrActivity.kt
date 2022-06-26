@@ -86,6 +86,7 @@ fun UserInfoList(modifier: Modifier, prList: Flow<PagingData<PullRequest>>, cont
                 }
                 loadState.append is LoadState.Error -> {
                     //You can use modifier to show error message
+//                    Toast.makeText(context, (loadState.append as LoadState.Error).error.message, Toast.LENGTH_SHORT).show()
                 }
             }
         }
@@ -179,7 +180,7 @@ fun PrRequestItem(prData: PullRequest, onClick: () -> Unit) {
                         overflow = TextOverflow.Ellipsis,
                         style = TextStyle(fontSize = 22.sp),
                         color = Color.Black,
-                        modifier = Modifier.padding(top = 5.dp, , start = 5.dp)
+                        modifier = Modifier.padding(top = 5.dp, start = 5.dp)
                     )
                 }
                 Row(
@@ -201,7 +202,7 @@ fun PrRequestItem(prData: PullRequest, onClick: () -> Unit) {
                         overflow = TextOverflow.Ellipsis,
                         style = TextStyle(fontSize = 22.sp),
                         color = Color.Black,
-                        modifier = Modifier.padding(top = 5.dp, , start = 5.dp)
+                        modifier = Modifier.padding(top = 5.dp, start = 5.dp)
                     )
                 }
 
