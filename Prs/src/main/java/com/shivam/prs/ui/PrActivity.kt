@@ -156,7 +156,7 @@ fun PrRequestItem(prData: PullRequest, onClick: () -> Unit) {
                         fontWeight = FontWeight.Light,
                         style = TextStyle(fontSize = 22.sp),
                         color = Color.Black,
-                        modifier = Modifier.padding(top = 5.dp)
+                        modifier = Modifier.padding(top = 5.dp, start = 5.dp)
                     )
                 }
                 Row(
@@ -179,7 +179,7 @@ fun PrRequestItem(prData: PullRequest, onClick: () -> Unit) {
                         overflow = TextOverflow.Ellipsis,
                         style = TextStyle(fontSize = 22.sp),
                         color = Color.Black,
-                        modifier = Modifier.padding(top = 5.dp)
+                        modifier = Modifier.padding(top = 5.dp, , start = 5.dp)
                     )
                 }
                 Row(
@@ -201,7 +201,7 @@ fun PrRequestItem(prData: PullRequest, onClick: () -> Unit) {
                         overflow = TextOverflow.Ellipsis,
                         style = TextStyle(fontSize = 22.sp),
                         color = Color.Black,
-                        modifier = Modifier.padding(top = 5.dp)
+                        modifier = Modifier.padding(top = 5.dp, , start = 5.dp)
                     )
                 }
 
@@ -223,7 +223,7 @@ fun PrRequestItem(prData: PullRequest, onClick: () -> Unit) {
                         fontWeight = FontWeight.Light,
                         maxLines = 1,
                         overflow = TextOverflow.Ellipsis,
-                        modifier = Modifier.padding(top = 5.dp)
+                        modifier = Modifier.padding(top = 5.dp, start = 5.dp)
                     )
                 }
             }
